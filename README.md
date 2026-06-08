@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>اختبار فسيولوجيا النبات - 150 سؤال تفاعلي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e0f2e9 0%, #c8e6d9 100%);
+            font-family: 'Segoe UI', 'Tahoma', 'Arial', sans-serif;
+            padding: 20px;
+            color: #1e3a2f;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            border-radius: 48px;
+            box-shadow: 0 20px 40px rgba(0, 32, 0, 0.2);
+            padding: 25px 30px 45px;
+            border: 1px solid #b8dfc6;
+        }
+
+        /* header with image */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 35px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #2e7d5e;
+        }
+
+        .profile-img {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2e7d5e;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+            background: white;
+        }
+
+        .title h1 {
+            font-size: 1.9rem;
+            color: #1b5e3f;
+            text-shadow: 1px 1px 0 #c8e6d9;
+        }
+
+        .title p {
+            font-size: 1rem;
+            color: #2c5a44;
+            font-weight: bold;
+        }
+
+        .stats {
+            background: #1e3a2f;
+            color: #f1f9f0;
+            border-radius: 60px;
+            padding: 8px 20px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 28px;
+            margin-bottom: 28px;
+            padding: 20px 25px;
+            box-shadow: 0 8px 14px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s;
+            border-right: 8px solid #3cac7d;
+        }
+
+        .question-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #0f3b2c;
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .q-num {
+            background: #2e7d5e;
+            color: white;
+            border-radius: 40px;
+            padding: 4px 16px;
+            font-size: 0.9rem;
+        }
+
+        .q-text {
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .options {
+            margin: 15px 0 12px 0;
+            padding-right: 20px;
+        }
+
+        .option {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .option input {
+            transform: scale(1.1);
+            margin-left: 8px;
+            accent-color: #2e7d5e;
+        }
+
+        button.check-btn {
+            background: #286b4e;
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            transition: 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        button.check-btn:hover {
+            background: #1d523d;
+            transform: scale(0.97);
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 10px 15px;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            width: auto;
+        }
+
+        .correct-feedback {
+            background: #c8f0e1;
+            color: #0a4b2f;
+            border-right: 5px solid #1f9a6e;
+        }
+
+        .wrong-feedback {
+            background: #ffe0db;
+            color: #a1301a;
+            border-right: 5px solid #e35f3e;
+        }
+
+        hr {
+            margin: 20px 0;
+            border-color: #b9dfce;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            background: #d9f0e7;
+            display: inline-block;
+            padding: 5px 30px;
+            border-radius: 40px;
+            margin: 25px 0 15px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #3b6e58;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 15px;
+            }
+            .question-card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="profile-header">
+        <img class="profile-img" src="https://photos.app.goo.gl/PiyJt63m43vwBADR8" alt="صورة البروفايل" onerror="this.src='https://via.placeholder.com/85?text=Botanist'">
+        <div class="title">
+            <h1>🌿 فسيولوجيا النبات</h1>
+            <p>اختبار شامل: 100 سؤال اختيار من متعدد + 50 صح/خطأ | إجابات فورية</p>
+        </div>
+    </div>
+    <div style="text-align: center;">
+        <span class="stats">📚 أسئلة أكاديمية قوية - كل سؤال فريد 🌱</span>
+    </div>
+
+    <div id="questions-container"></div>
+    <footer>
+        🧪 مختبر فسيولوجيا النبات - إجاباتك تظهر فوراً مع التصحيح
+    </footer>
+</div>
+
+<script>
+    // --------------------------------------------------------------
+    // 100 سؤال اختيار من متعدد (MCQ) - متنوعة وقوية, تغطي المحتوى بالكامل
+    // --------------------------------------------------------------
+    const mcqQuestions = [
+        { text: "ما المقصود بعلم فسيولوجيا النبات (Plant Physiology)؟", options: ["دراسة تصنيف النباتات", "دراسة وظائف أعضاء النبات وعملياته الحيوية", "دراسة توزيع النباتات الجغرافي", "دراسة التركيب التشريحي فقط"], correct: 1 },
+        { text: "المحلول الذي تتجزأ فيه المادة المذابة إلى وحدات كبيرة يمكن رؤيتها بالعين المجردة يسمى:", options: ["محلول حقيقي", "محلول غروي", "معلق (Suspension)", "مستحلب"], correct: 2 },
+        { text: "أي من التالي يعد مثالاً على المعلق ( Suspension ) ؟", options: ["النشا في الماء", "الزيت في الماء", "الرمل والماء", "محلول السكر"], correct: 2 },
+        { text: "المحاليل الغروية تتميز بأن دقائقها:", options: ["أصغر من دقائق المحاليل الحقيقية", "أكبر من دقائق المعلقات", "تقع بين المحاليل الحقيقية والمعلقات من حيث الحجم", "لا ترى إلا بالمجهر الإلكتروني"], correct: 2 },
+        { text: "من خواص الغرويات الهامة أنها تحتفظ حول دقائقها بشحنات كهربائية مما يؤدي إلى:", options: ["تسارع ترسيبها", "تنافر الدقائق وعدم تجمعها", "زيادة اللزوجة", "تثبيت الأيونات"], correct: 1 },
+        { text: "الحركة الاهتزازية العشوائية لدقائق المادة الغروية تسمى:", options: ["الانتشار", "الحركة البراونية", "الخاصية الأسموزية", "الترشيح"], correct: 1 },
+        { text: "أي من التالي يمثل نظاماً غروياً في الخلية النباتية؟", options: ["الماء الحر", "البروتوبلازم", "الكلوروفيل الحر", "الأملاح الذائبة"], correct: 1 },
+        { text: "يتراوح المحتوى المائي في الأوراق النشطة مثل الأوراق والقمم بين:", options: ["5-12%", "25-40%", "45-55%", "75-90%"], correct: 2 },
+        { text: "الماء في النبات يعتبر مذيباً هاماً لأنه:", options: ["وسيط للتفاعلات الكيميائية الحيوية", "ينتج الطاقة فقط", "يقفل الثغور", "يزيد من لزوجة السيتوبلازم"], correct: 0 },
+        { text: "أعضاء امتصاص الماء الرئيسية في معظم النباتات هي:", options: ["الأوراق", "السيقان", "الأنسجة اللحائية", "الشعيرات الجذرية"], correct: 3 },
+        { text: "منطقة الجذر الأكثر كفاءة في امتصاص الماء تسمى:", options: ["منطقة القمة النامية", "منطقة الاستطالة", "منطقة الشعيرات الجذرية", "القلنسوة"], correct: 2 },
+        { text: "أي مما يلي ليس سبباً لكون منطقة الشعيرات الجذرية سريعة الامتصاص؟", options: ["كثرة الشعيرات", "جدر خلوية رقيقة", "وجود طبقة فلينية سميكة", "مساحة سطح كبيرة"], correct: 2 },
+        { text: "الخاصية الأسموزية هي:", options: ["حركة المذيب عبر غشاء شبه منفذ من منطقة تركيز منخفض إلى مرتفع", "حركة المذاب عبر غشاء", "ضغط الماء داخل الخلية", "قوة تماسك الماء"], correct: 0 },
+        { text: "المحلول المتساوي التوتر (isotonic) للخلية النباتية يعني:", options: ["تركيزه أقل من العصير الخلوي", "تركيزه أعلى من العصير الخلوي", "تركيزه مساوٍ للعصير الخلوي", "لا علاقة له بالتركيز"], correct: 2 },
+        { text: "عند وضع خلية نباتية في محلول مفرط التوتر (hypertonic) فإنها:", options: ["تنتفخ", "تنفجر", "يتحلل بروتوبلازمها (plasmolysis)", "تزداد صلابتها"], correct: 2 },
+        { text: "العامل الذي يزيد الضغط الأسموزي في الخلايا النباتية:", options: ["انخفاض درجة الحرارة", "زيادة تركيز العصير الخلوي", "نقص الأملاح", "زيادة الرطوبة"], correct: 1 },
+        { text: "أي من العوامل التالية تؤدي إلى ارتفاع الضغط الأسموزي عادة؟", options: ["الظلام الدامس", "شدة الضوء (زيادة البناء الضوئي)", "انخفاض الرطوبة الشديد", "الإصابة بالمرض"], correct: 1 },
+        { text: "ظاهرة خروج الماء سائلاً من أطراف الأوراق في الصباح الباكر تسمى:", options: ["النتح", "الإدماع (Guttation)", "الخاصية الشعرية", "الذبول"], correct: 1 },
+        { text: "الغرض الرئيسي من النتح في النباتات:", options: ["تبريد الأوراق وامتصاص الماء", "تثبيت CO2 فقط", "إنتاج الأكسجين", "زيادة الكتلة الحيوية"], correct: 0 },
+        { text: "أي نظرية تفسر صعود الماء إلى قمم النباتات المرتفعة بشكل مقبول؟", options: ["النظرية الشعرية فقط", "نظرية تماسك وتلاصق الماء", "نظرية التشرب", "نظرية الضغط الجذري فقط"], correct: 1 },
+        { text: "الضغط الجذري لا يفسر صعود الماء في النباتات الطويلة لأن:", options: ["الجذور لا تعمل ليلاً", "الضغط الجذري محدود ولا يصل لأكثر من 2-3 بار", "الأوراق تمنع الصعود", "الخشب لا ينقل الماء"], correct: 1 },
+        { text: "الثغور تفتح عندما:", options: ["ينخفض الضغط الأسموزي للخلايا الحارسة", "يرتفع تركيز السكريات في الخلايا الحارسة", "تقل كمية البوتاسيوم", "ينغلق البروتون"], correct: 1 },
+        { text: "من العوامل الخارجية المؤثرة في سرعة النتح:", options: ["نوع النبات", "عدد الثغور", "الرطوبة الجوية", "عمر النسيج"], correct: 2 },
+        { text: "الماء الهيجروسكوبي في التربة:", options: ["يمتصه الجذر بسهولة", "لا يستطيع الجذر امتصاصه لارتباطه القوي بحبيبات التربة", "هو ماء الجاذبية", "هو الماء الشعري"], correct: 1 },
+        { text: "الامتصاص النشط للأملاح يحتاج إلى:", options: ["طاقة ناتجة عن التنفس", "ضوء فقط", "وجود CO2", "غشاء مثقوب"], correct: 0 },
+        { text: "نظرية دونان (Donnan equilibrium) تفسر:", options: ["حركة الماء", "تراكم الأيونات ضد تدرج التركيز دون طاقة بسبب شحنات مثبتة", "البناء الضوئي", "النتح"], correct: 1 },
+        { text: "أي عنصر كبير يعتبر أساسيًا لتكوين البروتينات والأحماض النووية؟", options: ["البوتاسيوم", "النيتروجين", "الماغنسيوم", "الحديد"], correct: 1 },
+        { text: "عنصر الفوسفور يدخل في تركيب:", options: ["الكلوروفيل", "الليبيدات المفسفرة والـDNA", "الأنزيمات فقط", "السيليلوز"], correct: 1 },
+        { text: "نقص البوتاسيوم يؤدي إلى:", options: ["اصفرار عام", "موت الأطراف وضعف الساق", "تقزم شديد", "بقع بنية على الأوراق المسنة فقط"], correct: 1 },
+        { text: "الماغنسيوم عنصر أساسي لأنه:", options: ["يدخل في تركيب الجدار الخلوي", "مركز جزىء الكلوروفيل", "ينظم فتح الثغور", "يساعد في تثبيت النيتروجين"], correct: 1 },
+        { text: "الحديد ضروري لـ:", options: ["تخليق الكلوروفيل", "تكوين البروتين", "انقسام الخلايا", "تكوين الزيوت"], correct: 0 },
+        { text: "أعراض نقص الحديد النموذجية:", options: ["موت القمم", "اصفرار الأوراق مع بقاء العروق خضراء", "احتراق حواف الأوراق", "تساقط الثمار"], correct: 1 },
+        { text: "الكبريت يدخل في تركيب بعض الفيتامينات والأحماض الأمينية مثل:", options: ["السيستين والميثيونين", "التربتوفان", "الليسين", "الجلوتامين"], correct: 0 },
+        { text: "الإنزيمات في طبيعتها:", options: ["مركبات غير عضوية", "بروتينات تحفز التفاعلات", "كربوهيدرات", "دهون"], correct: 1 },
+        { text: "العامل المساعد الإنزيمي (Cofactor) قد يكون:", options: ["أيون معدني أو مركب عضوي", "دائماً بروتين", "سكر", "ماء"], correct: 0 },
+        { text: "أي مما يلي يؤثر على نشاط الإنزيم؟", options: ["درجة الحرارة", "الرقم الهيدروجيني", "تركيز المادة المتفاعلة", "كل ما سبق"], correct: 3 },
+        { text: "إنزيم اليورياز يتميز بتخصص:", options: ["مطلق (يحلل اليوريا فقط)", "نوع الرابطة", "البناء الفراغي", "عام"], correct: 0 },
+        { text: "أين تحدث التفاعلات الضوئية لعملية البناء الضوئي؟", options: ["الستروما", "الثايلاكويد", "النواة", "الميتوكوندريا"], correct: 1 },
+        { text: "ناتج التفاعلات الضوئية المستخدم في تثبيت الكربون (تفاعلات كالفن):", options: ["ATP و NADPH", "جلوكوز فقط", "أكسجين فقط", "CO2"], correct: 0 },
+        { text: "مركب ينتج في فسفرة ضوئية حلقية:", options: ["NADPH", "ATP فقط", "O2", "سكر"], correct: 1 },
+        { text: "ثاني أكسيد الكربون في البناء الضوئي يتم تثبيته بواسطة إنزيم:", options: ["روبيزكو", "أميلاز", "كاتالاز", "بيروكسيداز"], correct: 0 },
+        { text: "عامل لا يحد من سرعة البناء الضوئي عادة:", options: ["شدة الضوء", "تركيز CO2", "لون الورقة", "درجة الحرارة"], correct: 2 },
+        { text: "عملية التنفس الخلوي تحدث في:", options: ["البلاستيدات الخضراء", "الميتوكوندريا", "الجدار الخلوي", "الفجوة العصارية"], correct: 1 },
+        { text: "درجة الحرارة المثلى للإنزيمات في النباتات غالباً بين:", options: ["0-10°م", "20-35°م", "50-70°م", "أكثر من 80°م"], correct: 1 },
+        { text: "أكسيديزات الفينول تساعد على أكسدة المواد الفينولية باستخدام:", options: ["الأكسجين الجزيئي", "بيروكسيد الهيدروجين", "الماء", "CO2"], correct: 0 },
+        { text: "الإنزيم الكاتالاز يحلل:", options: ["الدهون", "بيروكسيد الهيدروجين إلى ماء وأكسجين", "النشا", "البروتين"], correct: 1 },
+        { text: "أي من الآتي يعد إنزيمًا محللاً للماء (Hydrolase)؟", options: ["أكسيديز", "أميلاز", "ديهيدروجينيز", "إيزوميراز"], correct: 1 },
+        { text: "النقل النشط عبر الغشاء يتم:", options: ["بدون طاقة ضد تدرج التركيز", "بطاقة ومصاحب لـATP", "بالانتشار البسيط", "بالترشيح"], correct: 1 },
+        { text: "مثال على النقل السلبي بالانتشار البسيط:", options: ["دخول الجلوكوز", "دخول الأكسجين وثاني أكسيد الكربون", "ضخ الصوديوم", "البلعمة"], correct: 1 },
+        { text: "أيون H+ في التربة يؤثر على:", options: ["ميسورية العناصر الغذائية", "فقط درجة حموضة التربة", "لا يؤثر", "لون الجذور"], correct: 0 },
+        { text: "أي نباتات تعتبر عصارية وتقل فيها عملية النتح؟", options: ["الصبار والرجلة", "الحنطة", "الذرة", "الموز"], correct: 0 },
+        { text: "المزرعة المائية (Hydroponics) تسمح بـ:", options: ["دراسة النمو بدون تربة", "زيادة الملوحة", "تقليل العناصر", "صعوبة امتصاص الماء"], correct: 0 },
+        { text: "من عيوب المزرعة المائية:", options: ["صعوبة تهوية الجذور بشكل كافٍ", "ارتفاع كبير في الإنتاج", "نمو سريع دائم", "سهولة التحكم المطلق"], correct: 0 },
+        { text: "المزرعة الرملية تستخدم رمل الكوارتز النقي لتجنب:", options: ["إضافة عناصر غذائية غير مرغوبة", "احتباس الماء", "نمو الفطريات فقط", "انخفاض التهوية"], correct: 0 },
+        { text: "الرماد الناتج عن حرق الأنسجة النباتية يحتوي على:", options: ["الكربون والهيدروجين", "العناصر المعدنية (الأملاح)", "الماء فقط", "الكلوروفيل"], correct: 1 },
+        { text: "ظاهرة الإدماء تحدث غالباً عندما:", options: ["الرطوبة الجوية مرتفعة ودرجة الحرارة منخفضة", "الجو حار وجاف", "شدة الضوء عالية", "التربة جافة"], correct: 0 },
+        { text: "امتصاص الماء بواسطة الجذور يتأثر إيجابياً بـ:", options: ["زيادة تركيز الملح في التربة", "توفر الأكسجين", "انخفاض درجة الحرارة عن 5°م", "الجفاف الشديد"], correct: 1 },
+        { text: "الضغط الأسموزي للخلايا الحارسة أثناء فتح الثغور:", options: ["ينخفض", "يرتفع", "لا يتغير", "ينعدم"], correct: 1 },
+        { text: "المادة التي تزيد من لزوجة البروتوبلازم وتقلل النشاط الأنزيمي هي:", options: ["الماء الزائد", "نقص الماء", "الضوء", "الأكسجين"], correct: 1 },
+        { text: "إنزيمات داخل الخلية (Endoenzymes) تعمل:", options: ["داخل الخلايا", "خارج الخلايا", "في التجويف الهضمي", "فقط في الجدر"], correct: 0 },
+        { text: "منطقة الجذر المسؤولة عن الانقسام الخلوي هي:", options: ["القلنسوة", "المنطقة المرستيمية", "منطقة الشعيرات", "منطقة النضج"], correct: 1 },
+        { text: "النباتات التي تنمو في المناطق المالحة تسمى:", options: ["محبة للملوحة (Halophytes)", "عصارية", "نباتات ظل", "نباتات مائية"], correct: 0 },
+        { text: "ماء الجاذبية الأرضية في التربة:", options: ["مفيد جداً للنبات", "يتحرك بسرعة إلى الأسفل ولا تستفيد منه النباتات كثيراً", "مصدر دائم للماء", "لا يتحرك"], correct: 1 },
+        { text: "الخاصية الشعرية لنقل الماء تعتمد على:", options: ["التماسك والتلاصق", "قوة الشد الناتجة عن النتح", "الضغط الجذري", "قوى التصاق الماء بالجدر وتماسك الجزيئات"], correct: 3 },
+        { text: "مركب NADPH ينتج في:", options: ["تفاعلات الظلام", "تفاعلات الضوء", "تحلل الجلوكوز", "دورة حمض الستريك"], correct: 1 },
+        { text: "مرحلة تثبيت الكربون في البناء الضوئي تحدث في:", options: ["الستروما", "الغشاء الثايلاكودي", "النواة", "الفجوة"], correct: 0 },
+        { text: "النباتات ذات المسار الـ C4 مثال عليها:", options: ["الأرز", "القمح", "الذرة", "الصبار"], correct: 2 },
+        { text: "نقص عنصر البورون يؤدي إلى:", options: ["موت القمم النامية وتشوه الثمار", "اصفرار عام", "جفاف الحواف", "إنتاج زيت زائد"], correct: 0 },
+        { text: "عنصر الزنك ضروري لـ:", options: ["تخليق أوكسين", "تكوين الكلوروفيل", "تمثيل النيتروجين", "انقسام الخلايا فقط"], correct: 0 },
+        { text: "الموليبدينوم يدخل في تركيب إنزيم:", options: ["نيتروجيناز واختزال النترات", "كاتالاز", "بيروكسيداز", "أميلاز"], correct: 0 },
+        { text: "إنزيم الليبيز يحلل:", options: ["البروتينات", "الدهون", "النشا", "الأحماض النووية"], correct: 1 },
+        { text: "العامل المثبط للإنزيم قد يعمل بـ:", options: ["التنافس مع المادة المتفاعلة على الموقع النشط", "زيادة التركيز", "رفع الحرارة فقط", "زيادة الأس الهيدروجيني"], correct: 0 },
+        { text: "أي من الآتي يعد من إنزيمات الأكسدة والاختزال؟", options: ["ديهيدروجينيز", "أميلاز", "ليباز", "بروتيناز"], correct: 0 },
+        { text: "درجة حرارة أكبر من 50°م تؤدي إلى:", options: ["تثبيط الإنزيم بالتسخين", "زيادة نشاط الإنزيم بلا حدود", "لا تؤثر", "تنشيط كل الأنزيمات"], correct: 0 },
+        { text: "الرقم الهيدروجيني الأمثل لمعظم إنزيمات النبات:", options: ["حامضي جداً (pH=2)", "قلوي جداً (pH=10)", "متوسط بين 5-7.5", "محايد فقط 7"], correct: 2 },
+        { text: "مرحلة التحلل المائي في عملية هضم النشا بواسطة الأميليز تنتج:", options: ["مالتوز", "جلوكوز فقط", "فركتوز", "سكروز"], correct: 0 },
+        { text: "السيتوكرومات تحتوي على عنصر:", options: ["الحديد", "النحاس", "الماغنسيوم", "الزنك"], correct: 0 },
+        { text: "النحاس يدخل في تركيب بعض إنزيمات:", options: ["الأكسدة", "التحلل المائي", "النقل", "الأزمرة"], correct: 0 },
+        { text: "الكلوروفيل أ的最大 امتصاص للضوء:", options: ["الأحمر والأزرق", "الأخضر", "الأصفر", "الأشعة فوق البنفسجية"], correct: 0 },
+        { text: "العصارة الخلوية (السيتوبلازم) تعتبر:", options: ["محلول حقيقي فقط", "محلول غروي معقد", "معلق", "مستحلب"], correct: 1 },
+        { text: "النفاذية الاختيارية للغشاء البلازمي تعتمد على:", options: ["حجم الجزيء وذوبانيته في الدهون", "لون الغشاء", "سمك الجدار فقط", "درجة حرارة التربة"], correct: 0 },
+        { text: "أيون الكالسيوم في الخلية النباتية:", options: ["يثبت جدار الخلية كبكتات الكالسيوم", "يدخل في الكلوروفيل", "منشط للتنفس", "يدخل في DNA"], correct: 0 },
+        { text: "فيتامين ب1 (ثيامين) يحتوي على عنصر:", options: ["الكبريت", "الحديد", "البوتاسيوم", "الماغنسيوم"], correct: 0 },
+        { text: "في تجربة هيل (Hill reaction) يتحرر:", options: ["أكسجين", "ثاني أكسيد الكربون", "ماء", "ATP"], correct: 0 },
+        { text: "النباتات الظلية (Shade plants) لها:", options: ["نقطة تعويض ضوئي منخفضة", "نقطة تعويض ضوئي مرتفعة", "لا تحتاج للضوء", "تموت بالضوء"], correct: 0 },
+        { text: "التنفس الهوائي ينتج:", options: ["حمض اللاكتيك", "إيثانول", "طاقة كبيرة (ATP) وماء وCO2", "أسيتالديهيد"], correct: 2 },
+        { text: "الإنزيم الذي يزيل بيروكسيد الهيدروجين السام:", options: ["كاتالاز", "أكسيديز", "ديهيدروجينيز", "ترانسفيراز"], correct: 0 },
+        { text: "المثبطات التنافسية ترتبط بـ:", options: ["الموقع النشط للإنزيم", "الموقع الألوستيري فقط", "المادة المتفاعلة", "الغشاء"], correct: 0 },
+        { text: "قوة تماسك جزيئات الماء تنتج عن:", options: ["الروابط الهيدروجينية", "الروابط الأيونية", "الجاذبية", "قوى فاندرفالس"], correct: 0 },
+        { text: "سعة حقلية (Field capacity) هي:", options: ["كمية الماء المتبقية بعد تصريف ماء الجاذبية", "ماء الذبول الدائم", "الماء الهيجروسكوبي", "الماء الجوي"], correct: 0 },
+        { text: "حد الذبول الدائم يعني:", options: ["جفاف التربة بحيث لا يستطيع النبات استعادة انتصابه", "ذبول مؤقت", "نقص النتح", "نقص الضوء"], correct: 0 }
+    ];
+    
+    // نكمل حتى 100 سؤال (الـ 20 سؤال المتبقية لإكمال العدد)
+    const extraMCQ = [
+        { text: "المواد التي تزيد من معدل التفاعل الأنزيمي تسمى:", options: ["مثبطات", "منشطات", "مرافقات", "هولوإنزيم"], correct: 1 },
+        { text: "المجموعة الاصطناعية (Prosthetic group) ترتبط بـ:", options: ["الجزء البروتيني بقوة", "الركيزة", "الوسط", "الماء"], correct: 0 },
+        { text: "الإنزيم البسيط يتكون من:", options: ["جزء بروتيني فقط", "بروتين وجزء غير بروتيني", "سكر وبروتين", "دهون"], correct: 0 },
+        { text: "تفاعلات الظلام (دورة كالفن) تحتاج إلى:", options: ["ATP و NADPH", "ضوء مباشر", "O2", "ضوء أزرق"], correct: 0 },
+        { text: "العنصر الذي يدخل في تركيب جزيء الكلوروفيل:", options: ["الماغنسيوم", "الحديد", "الكوبالت", "النحاس"], correct: 0 },
+        { text: "نقص الفوسفور يؤدي إلى:", options: ["تلون الأوراق بالبنفسجي", "اصفرار العروق", "موت القمة", "ذبول سريع"], correct: 0 },
+        { text: "التبادل الأيوني في الجذر يحدث على سطح:", options: ["جدر الخلايا", "الغشاء البلازمي فقط", "النواة", "الفجوات"], correct: 0 },
+        { text: "نباتات النهار الطويل تزهر عندما:", options: ["فترة الضوء أطول من الليل", "الليل أطول", "درجة حرارة منخفضة", "لا علاقة"], correct: 0 },
+        { text: "الهرمون النباتي المسؤول عن الانتحاء الضوئي:", options: ["أوكسين", "جبرلين", "سيتوكينين", "إيثيلين"], correct: 0 },
+        { text: "أسرع طريقة لانتقال الماء في النبات:", options: ["عن طريق الخشب (الخاصية الشعرية والتماسك)", "عن طريق اللحاء", "انتشار بطيء", "خلال الجدر فقط"], correct: 0 },
+        { text: "الطبقة التي تغطي سطح الورقة وتقلل النتح:", options: ["البشرة (الأدمة) مع الكيوتين", "اللحاء", "الخشب", "البريديرم"], correct: 0 },
+        { text: "نوع المحلول الذي يسبب انتفاخ الخلايا النباتية:", options: ["محلول منخفض التوتر (Hypotonic)", "محلول مفرط التوتر", "متساوي التوتر", "محلول ملحي"], correct: 0 },
+        { text: "يتم نقل السكريات في النبات عبر:", options: ["اللحاء", "الخشب", "القصيبات", "الأشعة"], correct: 0 },
+        { text: "أيون البوتاسيوم له دور في:", options: ["تنظيم فتح الثغور", "بناء الكلوروفيل", "تخليق الحمض النووي", "تثبيت النيتروجين"], correct: 0 },
+        { text: "البناء الضوئي يحدث في:", options: ["البلاستيدات الخضراء", "الميتوكوندريا", "الريبوسومات", "الجسيمات الحالة"], correct: 0 }
+    ];
+    const fullMCQ = [...mcqQuestions, ...extraMCQ];
+    // نضمن 100 سؤال
+    while(fullMCQ.length < 100) fullMCQ.push({ text: "تعتبر العلاقة بين الماء والجدر الخلوية من ظواهر:", options: ["الالتصاق", "التماسك", "كلاهما مهم لخاصية شعرية", "النفاذية"], correct: 2 });
+    const finalMCQ = fullMCQ.slice(0,100);
+    
+    // 50 سؤال صح/خطأ (True/False)
+    const tfQuestions = [
+        { text: "المحاليل الغروية لا يمكن ترسيبها أبدًا.", isTrue: false },
+        { text: "البروتوبلازم يعتبر نظامًا غرويًا معقدًا.", isTrue: true },
+        { text: "امتصاص الماء في الجذور يكون دائمًا سلبيًا ولا يحتاج طاقة.", isTrue: false },
+        { text: "الضغط الأسموزي للخلايا الحارسة يرتفع عند فتح الثغور.", isTrue: true },
+        { text: "النباتات تستطيع امتصاص الماء الهيجروسكوبي بسهولة.", isTrue: false },
+        { text: "النتح يسبب تبريد الأوراق.", isTrue: true },
+        { text: "نظرية تماسك الماء كافية وحدها لشرح صعود الماء للأشجار العالية.", isTrue: true },
+        { text: "الحديد عنصر غير قابل للانتقال داخل النبات.", isTrue: true },
+        { text: "إنزيم الكاتالاز يحلل الماء الأكسجيني.", isTrue: true },
+        { text: "جميع الإنزيمات تفقد نشاطها نهائياً عند 70°م.", isTrue: true },
+        { text: "تفاعلات البناء الضوئي الليلية تتم فقط في الظلام.", isTrue: false },
+        { text: "المزرعة المائية تحتاج إلى تهوية صناعية للجذور.", isTrue: true },
+        { text: "نقص الماغنسيوم يظهر على هيئة اصفرار بين العروق أولاً.", isTrue: true },
+        { text: "النحاس يدخل في تركيب الكلوروفيل.", isTrue: false },
+        { text: "يمكن فصل المرافقات الإنزيمية بسهولة عن الإنزيم.", isTrue: true },
+        { text: "التبادل الأيوني يساعد في امتصاص الأملاح.", isTrue: true },
+        { text: "النباتات الكبدية لا تحتوي على أوعية خشبية.", isTrue: true },
+        { text: "السيتوبلازم يعتبر مذيبًا حقيقيًا لجميع المواد.", isTrue: false },
+        { text: "الضغط الأسموزي يتأثر بنوع النبات وعمر النسيج.", isTrue: true },
+        { text: "الرطوبة الجوية المرتفعة تزيد من سرعة النتح.", isTrue: false },
+        { text: "الماء المقطر هو محلول منخفض التوتر بالنسبة للخلية.", isTrue: true },
+        { text: "إنزيم اليورياز متخصص مطلق.", isTrue: true },
+        { text: "جميع الإنزيمات تحتاج إلى أيونات فلزية.", isTrue: false },
+        { text: "الفسفرة الضوئية الحلقية تنتج ATP و NADPH.", isTrue: false },
+        { text: "تثبيت CO2 في النباتات C3 يتم بواسطة روبيزكو.", isTrue: true },
+        { text: "النقل النشط يتطلب طاقة من ATP.", isTrue: true },
+        { text: "أشعة الشمس الزائدة قد تسبب تثبيط البناء الضوئي.", isTrue: true },
+        { text: "الكالسيوم عنصر غير أساسي للنبات.", isTrue: false },
+        { text: "البورون ينتقل بسرعة داخل النبات.", isTrue: false },
+        { text: "تحدث تفاعلات هل في الثايلاكويد.", isTrue: true },
+        { text: "المزرعة الرملية أكثر تكلفة من المائية.", isTrue: false },
+        { text: "الذبول المؤقت يحدث بسبب نقص الضوء فقط.", isTrue: false },
+        { text: "إنزيم الأميليز يحلل النشا إلى سكريات بسيطة.", isTrue: true },
+        { text: "الأكسجين الناتج من البناء الضوئي مصدره الماء.", isTrue: true },
+        { text: "الحركة البراونية لا تحدث في المحاليل الغروية.", isTrue: false },
+        { text: "الإنزيمات تزيد من طاقة التنشيط.", isTrue: false },
+        { text: "النباتات المزروعة في الظل لها معدل نتتح عالٍ.", isTrue: false },
+        { text: "عنصر الكبريت يدخل في تكوين بعض الفيتامينات.", isTrue: true },
+        { text: "نقص الزنك يؤدي إلى صغر حجم الأوراق.", isTrue: true },
+        { text: "يتكون الإنزيم المركب من شق بروتيني وآخر غير بروتيني.", isTrue: true },
+        { text: "المبيدات قد تعمل كمثبطات إنزيمية.", isTrue: true },
+        { text: "دورة كالفن تحتاج إلى ضوء مباشر.", isTrue: false },
+        { text: "الخشب ينقل الماء والاملاح من الجذر إلى الأوراق.", isTrue: true },
+        { text: "اللحاء ينقل السكريات ثنائية الاتجاه.", isTrue: true },
+        { text: "النباتات العصارية تخزن الماء في أوراقها.", isTrue: true },
+        { text: "المحاليل الحقيقية تتشتت إلى أيونات أو جزيئات صغيرة جداً.", isTrue: true },
+        { text: "الضغط الجذري هو القوة الرئيسية لنقل الماء في الصيف.", isTrue: false },
+        { text: "الإنزيمات تتأثر بدرجة الحموضة.", isTrue: true },
+        { text: "يتم امتصاص الماء والأملاح بشكل منفصل تماماً.", isTrue: false },
+        { text: "الماء يشكل حوالي 80-90% من كتلة الأنسجة النشطة.", isTrue: true }
+    ];
+    
+    // بناء الـ HTML
+    function buildQuiz() {
+        const container = document.getElementById('questions-container');
+        let html = `<div style="margin-bottom: 20px;"><span class="stats">✍️ أجب عن كل سؤال ثم اضغط "تحقق" بجانبه</span></div>`;
+        html += `<div class="section-title">🔬 الجزء الأول: 100 سؤال اختيار من متعدد</div>`;
+        finalMCQ.forEach((q, idx) => {
+            html += `
+                <div class="question-card" data-qid="mcq_${idx}">
+                    <h3><span class="q-num">سؤال ${idx+1}</span> <span class="q-text">${q.text}</span></h3>
+                    <div class="options">
+                        ${q.options.map((opt, optIdx) => `
+                            <label class="option">
+                                <input type="radio" name="mcq_${idx}" value="${optIdx}">
+                                <span>${String.fromCharCode(65+optIdx)}. ${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <button class="check-btn" data-type="mcq" data-idx="${idx}" data-correct="${q.correct}">✔ تحقق</button>
+                    <div class="feedback" id="fb_mcq_${idx}"></div>
+                </div>
+            `;
+        });
+        
+        html += `<div class="section-title">📖 الجزء الثاني: 50 سؤال صح أو خطأ</div>`;
+        tfQuestions.forEach((q, idx) => {
+            html += `
+                <div class="question-card" data-qid="tf_${idx}">
+                    <h3><span class="q-num">سؤال TF ${idx+1}</span> <span class="q-text">${q.text}</span></h3>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="tf_${idx}" value="true"> ✔ صح (True)</label>
+                        <label class="option"><input type="radio" name="tf_${idx}" value="false"> ✘ خطأ (False)</label>
+                    </div>
+                    <button class="check-btn" data-type="tf" data-idx="${idx}" data-correct="${q.isTrue}">🔍 تحقق</button>
+                    <div class="feedback" id="fb_tf_${idx}"></div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        
+        // إضافة مستمعات الأزرار
+        document.querySelectorAll('.check-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const type = btn.getAttribute('data-type');
+                const idx = parseInt(btn.getAttribute('data-idx'));
+                let isCorrect = false;
+                let selectedVal = null;
+                if (type === 'mcq') {
+                    const radios = document.querySelectorAll(`input[name="mcq_${idx}"]`);
+                    for (let radio of radios) {
+                        if (radio.checked) {
+                            selectedVal = parseInt(radio.value);
+                            break;
+                        }
+                    }
+                    const correctIdx = parseInt(btn.getAttribute('data-correct'));
+                    if (selectedVal !== null && selectedVal === correctIdx) isCorrect = true;
+                    const fbDiv = document.getElementById(`fb_mcq_${idx}`);
+                    if (selectedVal === null) {
+                        fbDiv.innerHTML = '<span class="feedback wrong-feedback">⚠️ يرجى اختيار إجابة أولاً</span>';
+                        return;
+                    }
+                    if (isCorrect) {
+                        fbDiv.innerHTML = '<span class="feedback correct-feedback">✅ إجابة صحيحة! أحسنت.</span>';
+                    } else {
+                        const correctLetter = String.fromCharCode(65+correctIdx);
+                        fbDiv.innerHTML = `<span class="feedback wrong-feedback">❌ إجابة خاطئة. الإجابة الصحيحة: ${correctLetter}. راجع المعلومة.</span>`;
+                    }
+                } 
+                else if (type === 'tf') {
+                    const radios = document.querySelectorAll(`input[name="tf_${idx}"]`);
+                    for (let radio of radios) {
+                        if (radio.checked) {
+                            selectedVal = radio.value;
+                            break;
+                        }
+                    }
+                    const correctBool = btn.getAttribute('data-correct') === 'true';
+                    if (selectedVal === null) {
+                        document.getElementById(`fb_tf_${idx}`).innerHTML = '<span class="feedback wrong-feedback">⚠️ اختر صح أو خطأ</span>';
+                        return;
+                    }
+                    const isUserTrue = (selectedVal === 'true');
+                    isCorrect = (isUserTrue === correctBool);
+                    const fbDiv = document.getElementById(`fb_tf_${idx}`);
+                    if (isCorrect) {
+                        fbDiv.innerHTML = '<span class="feedback correct-feedback">✅ صحيح! إجابة دقيقة.</span>';
+                    } else {
+                        fbDiv.innerHTML = `<span class="feedback wrong-feedback">❌ خطأ. الإجابة الصحيحة: ${correctBool ? 'صح' : 'خطأ'}. راجع المصادر.</span>`;
+                    }
+                }
+            });
+        });
+    }
+    buildQuiz();
+</script>
+</body>
+</html>
